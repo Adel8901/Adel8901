@@ -14,7 +14,19 @@
       <video id="sample-video" src="https://github.com/Adel8901/adel8901/blob/main/video/video.mp4" autoplay loop playsinline webkit-playsinline style="display: none;"></video>
       
       <!-- Маркер "hiro" -->
-      <a-marker preset="hiro">
+      <a-scene
+      vr-mode-ui="enabled: false;"
+      renderer="logarithmicDepthBuffer: true;"
+      embedded
+      arjs="trackingMethod: best; sourceType: webcam;debugUIEnabled: false;">
+
+      <a-nft
+      type="nft"
+      url="https://github.com/Adel8901/adel8901/tree/ae14effe982afdceb31421df23ac8820ce2c6929/Screenshot-image/Screenshot"
+      smooth="true"
+      smoothCount="10"
+      smoothTolerance=".01"
+      smoothThreshold="5">
         <!-- Пример 1: 3D объект (куб) -->
         <!-- <a-entity geometry="primitive: box" material="color: red"> -->
         
@@ -28,7 +40,7 @@
           height="2">
           
         </a-video>
-      </a-marker>
+      </a-nft>
       
       <!-- Камера -->
       <a-entity camera="active: true" look-controls wasd-controls position="0 1.6 0" data-aframe-default-camera></a-entity>
