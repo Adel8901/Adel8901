@@ -3,9 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Автовоспроизведение видео</title>
+    <title>Отображение NFT</title>
+    <script src="https://cdn.jsdelivr.net/gh/aframevr/aframe@1c2407b26c61958baa93967b5412487cd94b290b/dist/aframe-master.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/aframevr/aframe-nft/dist/aframe-nft.min.js"></script>
 </head>
 <body>
+
+<a-scene>
+    <a-assets>
+        <img id="nft-image" src="https://github.com/Adel8901/adel8901/Screenshot-image/Screenshot" />
+    </a-assets>
+
+    <a-nft src="#nft-image" 
+            position="0 1 -3" 
+            rotation="0 0 0" 
+            scale="1 1 1" 
+            onclick="alert('NFT кликнут!')">
+    </a-nft>
+
+    <a-sky color="#ECECEC"></a-sky>
+</a-scene>
 
 <video id="sample-video" src="https://cdn.jsdelivr.net/gh/Adel8901/adel8901/image-trackin/video.mp4" autoplay loop playsinline webkit-playsinline muted>
     Ваш браузер не поддерживает видео.
