@@ -9,7 +9,22 @@
     <script src="https://cdn.jsdelivr.net/gh/aframevr/aframe@1c2407b26c61958baa93967b5412487cd94b290b/dist/aframe-master.min.js"></script>
      
   </head>
-
+  <div id="loading-overlay">Загрузка...</div>
+  <div id="nft-content" style="display:none;">Ваш NFT контент здесь</div>
+  
+  <script>
+    // Скрываем загрузочный оверлей
+    function hideLoadingOverlay() {
+      document.getElementById('loading-overlay').style.display = 'none';
+      document.getElementById('nft-content').style.display = 'block'; // Показываем контент
+    }
+  
+    // Добавляем слушатель события
+    window.addEventListener("arjs-nft-loaded", (event) => {
+      hideLoadingOverlay();
+    });
+  </script>
+  
   <style>
       .arjs-loader {
         height: 100%;
