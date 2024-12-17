@@ -27,22 +27,15 @@
     </div>
   
     <!-- a-frame scene -->
-    <!-- a-frame scene -->
-    <a-scene
-      vr-mode-ui='enabled: false;'
-      renderer="logarithmicDepthBuffer: true;"
-      embedded arjs='trackingMethod: best; sourceType: webcam; debugUIEnabled: false;'>
-      <!-- a-nft is the anchor that defines an Image Tracking entity -->
-      <!-- on 'url' use the path to the Image Descriptors created before. -->
-      <!-- the path should end with the name without the extension e.g. if file is trex.fset' the path should end with trex -->
-        <a-nft
-        type='nft' url='https://github.com/Adel8901/adel8901/Screenshot-image/Screenshot'
-        smooth='true' smoothCount='10' smoothTolerance='0.01' smoothThreshold='5'>
-        <a-box position='45 45 27.5' scale='90 90 90' material='opacity: 0.5;'></a-box>
+    <a-scene embedded arjs>
                 
-        <video id="sample-video" src="https://cdn.jsdelivr.net/gh/Adel8901/adel8901/image-trackin/video.mp4" autoplay loop playsinline webkit-playsinline style="display: none;"></video>
+      <video id="sample-video" src="https://cdn.jsdelivr.net/gh/Adel8901/adel8901/image-trackin/video.mp4" autoplay loop playsinline webkit-playsinline style="display: none;"></video>
       
-      
+      <!-- Маркер "hiro" -->
+      <a-marker preset="hiro">
+        <!-- Пример 1: 3D объект (куб) -->
+        <!-- <a-entity geometry="primitive: box" material="color: red"> -->
+        
         <!-- Пример 2: Видеотекстура -->
         <a-video 
           id="videoElement"
@@ -53,7 +46,7 @@
           height="2">
           
         </a-video>
-      </a-nft>
+      </a-marker>
       
       <!-- Камера -->
       <a-entity camera="active: true" look-controls wasd-controls position="0 1.6 0" data-aframe-default-camera></a-entity>
