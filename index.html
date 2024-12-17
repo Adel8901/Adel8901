@@ -14,7 +14,7 @@
 
     .arjs-loader div {
       text-align: center;
-      font-size: 2.25em;
+      font-size: 5.25em;
       color: black;
     }
   </style>
@@ -36,14 +36,7 @@
       <video id="sample-video" src="https://cdn.jsdelivr.net/gh/Adel8901/adel8901/image-trackin/video.mp4" autoplay loop playsinline webkit-playsinline style="display: none;"></video>
       
       <!-- Маркер "hiro" -->
-      <a-nft
-      type="nft"
-      url="<path-to-your-image-descriptors>"
-      smooth="true"
-      smoothCount="10"
-      smoothTolerance=".01"
-      smoothThreshold="5"
-    >
+      <a-marker preset="hiro">
         <!-- Пример 1: 3D объект (куб) -->
         <!-- <a-entity geometry="primitive: box" material="color: red"> -->
         
@@ -57,7 +50,7 @@
           height="2">
           
         </a-video>
-      </a-nft>
+      </a-marker>
       
       <!-- Камера -->
       <a-entity camera="active: true" look-controls wasd-controls position="0 1.6 0" data-aframe-default-camera></a-entity>
