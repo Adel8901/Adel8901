@@ -1,6 +1,35 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="
+            default-src 
+              'self' 
+              data: 
+              gap: 
+              https://ssl.gstatic.com 
+              'unsafe-eval' 
+              https://cdn.aframe.io        
+              https://dpdb.webvr.rocks      
+              https://fonts.googleapis.com  
+              https://cdn.jsdelivr.net      
+              ; 
+            style-src 
+              'self' 
+              'unsafe-inline'
+              ; 
+            media-src *; 
+            img-src 
+              'self' 
+              data:                        
+              content:                     
+              blob:                        
+              ;
+          "
+    />
+
+    <script src="https://cdn.jsdelivr.net/npm/aframe@1.0.4/dist/aframe-master.min.js"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AR Video</title>
