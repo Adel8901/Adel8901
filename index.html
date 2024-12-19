@@ -73,56 +73,6 @@
       });
     </script>
 
-    <script>
-      
-      // Функция проверки видимости маркера
-      function checkMarkerVisibility() {
-        const marker = document.querySelector("a-nft");
-        if (marker && marker.getAttribute('visible') === 'true') {
-          console.log('Маркер видим');
-        } else {
-          console.log('Маркер невидим');
-        }
-      }
-
-      // Функция проверки состояния трекинга AR.js
-      function checkARTrackingStatus() {
-        const arController = document.querySelector("a-scene").systems.arjs._arSession.arContext.arController;
-        if (arController.isTracking()) {
-          console.log('AR трекинг активен');
-        } else {
-          console.log('AR трекинг неактивен');
-        }
-      }
-
-      // Основной код
-      document.addEventListener('DOMContentLoaded', function() {
-        const nftMarker = document.getElementById('nft-marker');
-
-        nftMarker.addEventListener('markerfound', function(event) {
-          console.log('Маркер найден!');
-          checkMarkerVisibility();
-        });
-
-        nftMarker.addEventListener('markerlost', function(event) {
-          console.log('Маркер потерян');
-          checkARTrackingStatus();
-        });
-      });
-
-      // Функция для проверки видимости маркера в каждом кадре
-      function updateMarkerVisibility() {
-        checkMarkerVisibility();
-        requestAnimationFrame(updateMarkerVisibility);
-      }
-
-      // Запускаем анимацию обновления видимости маркера
-      updateMarkerVisibility();
-
-      // Проверяем состояние AR трекинга каждые 100 мс
-      setInterval(checkARTrackingStatus, 100);
-    </script>
-
 
     <!-- minimal loader shown until image descriptors are loaded. Loading may take a while according to the device computational power -->    
     <!-- a-frame scene -->
@@ -181,5 +131,55 @@
       });
     </script>-->
     
+    <script>
+      
+      // Функция проверки видимости маркера
+      function checkMarkerVisibility() {
+        const marker = document.querySelector("a-nft");
+        if (marker && marker.getAttribute('visible') === 'true') {
+          console.log('Маркер видим');
+        } else {
+          console.log('Маркер невидим');
+        }
+      }
+
+      // Функция проверки состояния трекинга AR.js
+      function checkARTrackingStatus() {
+        const arController = document.querySelector("a-scene").systems.arjs._arSession.arContext.arController;
+        if (arController.isTracking()) {
+          console.log('AR трекинг активен');
+        } else {
+          console.log('AR трекинг неактивен');
+        }
+      }
+
+      // Основной код
+      document.addEventListener('DOMContentLoaded', function() {
+        const nftMarker = document.getElementById('nft-marker');
+
+        nftMarker.addEventListener('markerfound', function(event) {
+          console.log('Маркер найден!');
+          checkMarkerVisibility();
+        });
+
+        nftMarker.addEventListener('markerlost', function(event) {
+          console.log('Маркер потерян');
+          checkARTrackingStatus();
+        });
+      });
+
+      // Функция для проверки видимости маркера в каждом кадре
+      function updateMarkerVisibility() {
+        checkMarkerVisibility();
+        requestAnimationFrame(updateMarkerVisibility);
+      }
+
+      // Запускаем анимацию обновления видимости маркера
+      updateMarkerVisibility();
+
+      // Проверяем состояние AR трекинга каждые 100 мс
+      setInterval(checkARTrackingStatus, 100);
+    </script>
+
   </body>
 </html>
