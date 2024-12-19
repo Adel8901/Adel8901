@@ -92,20 +92,20 @@
           smoothTolerance=".01"
           smoothThreshold="5"
       >
-<script>
-  document.addEventListener('DOMContentLoaded', function() {
-    const nftMarker = document.getElementById('videoElement');
+        <script>
+          document.addEventListener('DOMContentLoaded', function() {
+            const nftMarker = document.getElementById('videoElement');
 
-    marker.addEventListener('markerfound', function() {
-  console.log('Маркер найден');
-    });
+            marker.addEventListener('markerfound', function() {
+          console.log('Маркер найден');
+            });
 
-    marker.addEventListener('markerlost', function() {
-      console.log('Маркер потерян');
-      // Ваш код для обработки потери NFT маркера
-    });
-  });
-</script>
+            marker.addEventListener('markerlost', function() {
+              console.log('Маркер потерян');
+              // Ваш код для обработки потери NFT маркера
+            });
+          });
+        </script>
 
 
         <!-- Пример 2: Видеотекстура -->
