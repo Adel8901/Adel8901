@@ -106,22 +106,22 @@
         </a-video>
       <script>
         document.addEventListener('DOMContentLoaded', function() {
-            const nftMarker = document.getElementById('pattern');
+            const Marker = document.getElementById('pattern');
         
             // Функция для проверки видимости маркера
             function checkMarkerVisibility() {
-                const isVisible = nftMarker.getAttribute('visible') === 'true';
+                const isVisible = Marker.getAttribute('visible') === 'true';
                 console.log('Маркер видим:', isVisible);
             }
         
             // Слушатель события markerfound
-            nftMarker.addEventListener('markerfound', function(event) {
+            Marker.addEventListener('markerfound', function(event) {
                 console.log('Маркер найден!');
                 checkMarkerVisibility();
             });
         
             // Слушатель события markerlost
-            nftMarker.addEventListener('markerlost', function(event) {
+            Marker.addEventListener('markerlost', function(event) {
                 console.log('Маркер потерян');
             });
         
