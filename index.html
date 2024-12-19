@@ -61,12 +61,20 @@
     </script>
 
     <script>
+      // Скрываем загрузочный оверлей
+      function hideLoadingOverlay() {
+        document.getElementById('loading-overlay').style.display = 'none';
+      }
+
+      // Добавляем слушатель события
       window.addEventListener("arjs-nft-loaded", (event) => {
-        // Hide loading overlay
+        hideLoadingOverlay();
+        console.log('NFT маркер загружен');
       });
     </script>
 
     <script>
+      
       // Функция проверки видимости маркера
       function checkMarkerVisibility() {
         const marker = document.querySelector("a-nft");
