@@ -105,6 +105,40 @@
           
         </a-video>
       </a-nft>
+      <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const nftMarker = document.getElementById('nft');
+        
+            // Функция для проверки видимости маркера
+            function checkMarkerVisibility() {
+                const isVisible = nftMarker.getAttribute('visible') === 'true';
+                console.log('Маркер видим:', isVisible);
+            }
+        
+            // Слушатель события markerfound
+            nftMarker.addEventListener('markerfound', function(event) {
+                console.log('Маркер найден!');
+                checkMarkerVisibility();
+            });
+        
+            // Слушатель события markerlost
+            nftMarker.addEventListener('markerlost', function(event) {
+                console.log('Маркер потерян');
+            });
+        
+            // Функция для обновления состояния видимости маркера в каждом кадре
+            function updateMarkerState() {
+                checkMarkerVisibility();
+                requestAnimationFrame(updateMarkerState);
+            }
+        
+            // Запускаем анимацию обновления состояния маркера
+            updateMarkerState();
+        
+            // Проверяем состояние маркера каждые 100 мс
+            setInterval(checkMarkerVisibility, 100);
+        });
+        </script>
       <!-- </a-marker> -->
       <!-- Камера -->
         <a-entity camera="active: true" look-controls wasd-controls position="0 1.6 0" data-aframe-default-camera></a-entity>
