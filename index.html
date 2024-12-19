@@ -92,15 +92,21 @@
           smoothTolerance=".01"
           smoothThreshold="5"
       >
-      <script>
-        marker.addEventListener('markerfound', function() {
-          console.log('Маркер найден');
-        });
-  
-        marker.addEventListener('markerlost', function() {
-          console.log('Маркер потерян');
-        });
-      </script>
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const nftMarker = document.getElementById('videoElement');
+
+    marker.addEventListener('markerfound', function() {
+  console.log('Маркер найден');
+    });
+
+    marker.addEventListener('markerlost', function() {
+      console.log('Маркер потерян');
+      // Ваш код для обработки потери NFT маркера
+    });
+  });
+</script>
+
 
         <!-- Пример 2: Видеотекстура -->
         <a-video 
