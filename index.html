@@ -119,6 +119,9 @@
         nft.addEventListener("markerfound", function(event) {
           console.log('Получено событие!');
         });
+        nft.addEventListener("markerlost", function(event) {
+          console.log('Маркер потерян');
+        });
       });
     </script>
     
