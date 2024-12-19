@@ -82,8 +82,15 @@
       </video>
       
       <!-- Маркер "hiro" -->
-      <a-marker type="pattern" preset="custom" url="https://cdn.jsdelivr.net/gh/Adel8901/adel8901/Screenshot-image/pattern-Mika.patt">
-
+      <!-- <a-marker type="pattern" preset="custom" url="https://cdn.jsdelivr.net/gh/Adel8901/adel8901/Screenshot-image/pattern-Mika.patt"> -->
+        <a-nft
+        type="nft"
+        url="<path-to-your-image-descriptors>"
+        smooth="true"
+        smoothCount="10"
+        smoothTolerance=".01"
+        smoothThreshold="5"
+      >
 
         <!-- Пример 2: Видеотекстура -->
         <a-video 
@@ -95,7 +102,8 @@
           height="2">
           
         </a-video>
-      </a-marker>
+      </a-nft>
+      <!-- </a-marker> -->
       <!-- Камера -->
         <a-entity camera="active: true" look-controls wasd-controls position="0 1.6 0" data-aframe-default-camera></a-entity>
     </a-scene>    
