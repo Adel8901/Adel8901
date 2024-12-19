@@ -81,9 +81,9 @@
       </video>
       
       <!-- Маркер "hiro" -->
-      <!-- <a-marker type="pattern" preset="custom" url="https://cdn.jsdelivr.net/gh/Adel8901/adel8901/Screenshot-image/pattern-letterA"> -->
+      <a-marker type="pattern" preset="custom" url="https://cdn.jsdelivr.net/gh/Adel8901/adel8901/Screenshot-image/pattern-letterA">
 
-        <a-nft
+        <!--<a-nft
           videohandler
           id="nft"
           type="nft"
@@ -92,7 +92,7 @@
           smoothCount="10"
           smoothTolerance=".01"
           smoothThreshold="5"
-      >
+      >  -->
 
         <!-- Пример 2: Видеотекстура -->
         <a-video 
@@ -104,10 +104,11 @@
           height="2">
           
         </a-video>
-      </a-nft>
+      <!--</a-nft>-->
+      </a-marker>
       <script>
         document.addEventListener('DOMContentLoaded', function() {
-            const nftMarker = document.getElementById('nft');
+            const nftMarker = document.getElementById('a-marker');
         
             // Функция для проверки видимости маркера
             function checkMarkerVisibility() {
