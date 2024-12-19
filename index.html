@@ -82,14 +82,8 @@
       </video>
       
       <!-- Маркер "hiro" -->
-      <a-nft
-        videohandler
-        type="nft" url="https://github.com/Adel8901/adel8901/Screenshot-image/Screenshot"
-        smooth="true" smoothCount="10" smoothTolerance="0.01" smoothThreshold="5"
-        >
-        <!-- Пример 1: 3D объект (куб) -->
-        <!-- <a-entity geometry="primitive: box" material="color: red"> -->
-        
+      <a-marker type="pattern" url="hiro.patt">
+                
         <!-- Пример 2: Видеотекстура -->
         <a-video 
           id="videoElement"
@@ -100,7 +94,7 @@
           height="2">
           
         </a-video>
-      </a-nft>
+      </a-marker>
       <!-- Камера -->
         <a-entity camera="active: true" look-controls wasd-controls position="0 1.6 0" data-aframe-default-camera></a-entity>
     </a-scene>    
