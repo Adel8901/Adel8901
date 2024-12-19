@@ -85,27 +85,15 @@
 
         <a-nft
           videohandler
+          id="nft"
           type="nft"
-          id="a-marker"
+          src="#nft"
           url="https://cdn.jsdelivr.net/gh/Adel8901/adel8901/Screenshot_2_image/Screenshot_2"
           smooth="true"
           smoothCount="10"
           smoothTolerance=".01"
           smoothThreshold="5"
       >
-      <script>
-          document.addEventListener('DOMContentLoaded', function() {
-            const marker = document.querySelector('a-marker');
-
-        marker.addEventListener('markerfound', function() {
-          console.log('Маркер найден');
-        });
-  
-        marker.addEventListener('markerlost', function() {
-          console.log('Маркер потерян');
-          });
-        });
-      </script>
 
         <!-- Пример 2: Видеотекстура -->
         <a-video 
@@ -121,6 +109,18 @@
       <!-- </a-marker> -->
       <!-- Камера -->
         <a-entity camera="active: true" look-controls wasd-controls position="0 1.6 0" data-aframe-default-camera></a-entity>
-    </a-scene>    
+    </a-scene>
+
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        const nst = document.querySelector('#nft');
+    
+        // Добавляем слушатель события к получателю
+        nft.addEventListener("markerfound", function(event) {
+          console.log('Получено событие!');
+        });
+      });
+    </script>
+    
   </body>
 </html>
