@@ -81,7 +81,7 @@
       </video>
       
       <!-- Маркер "hiro" -->
-      <a-marker type="pattern" preset="custom" url="https://cdn.jsdelivr.net/gh/Adel8901/adel8901/Screenshot-image/pattern-letterA">
+      <a-marker type="pattern" preset="custom" url="https://cdn.jsdelivr.net/gh/Adel8901/adel8901/Screenshot-image/pattern-qr-code.patt">
 
         <!--<a-nft
           videohandler
@@ -104,34 +104,6 @@
           height="2">
           
         </a-video>
-      <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const Marker = document.getElementById('pattern');
-        
-            // Функция для проверки видимости маркера
-            function checkMarkerVisibility() {
-                const isVisible = Marker.getAttribute('visible') === 'true';
-                console.log('Маркер видим:', isVisible);
-            }
-        
-            // Слушатель события markerfound
-            Marker.addEventListener('markerfound', function(event) {
-                console.log('Маркер найден!');
-                checkMarkerVisibility();
-            });
-        
-            // Слушатель события markerlost
-            Marker.addEventListener('markerlost', function(event) {
-                console.log('Маркер потерян');
-            });
-        
-            // Функция для обновления состояния видимости маркера в каждом кадре
-            function updateMarkerState() {
-                checkMarkerVisibility();
-                requestAnimationFrame(updateMarkerState);
-            }  
-        });
-        </script>
       <!--</a-nft>-->
       </a-marker>
       <!-- Камера -->
