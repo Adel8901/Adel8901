@@ -82,7 +82,16 @@
       
       <!-- Маркер "hiro" -->
       <!-- <a-marker type="pattern" preset="custom" url="https://cdn.jsdelivr.net/gh/Adel8901/adel8901/Screenshot-image/pattern-letterA"> -->
-      <a-nft
+        <script>
+          marker.addEventListener('markerfound', function() {
+            console.log('Маркер найден');
+          });
+    
+          marker.addEventListener('markerlost', function() {
+            console.log('Маркер потерян');
+          });
+        </script>
+        <a-nft
           videohandler
           type="nft"
           url="https://cdn.jsdelivr.net/gh/Adel8901/adel8901/Screenshot_2_image/Screenshot_2"
@@ -91,16 +100,8 @@
           smoothTolerance=".01"
           smoothThreshold="5"
       >
-      
-      <script>
-        marker.addEventListener('markerfound', function() {
-          console.log('Маркер найден');
-        });
-  
-        marker.addEventListener('markerlost', function() {
-          console.log('Маркер потерян');
-        });
-      </script>
+
+
 
         <!-- Пример 2: Видеотекстура -->
         <a-video 
