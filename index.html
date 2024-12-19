@@ -61,15 +61,8 @@
     </script>
 
     <script>
-      // Скрываем загрузочный оверлей
-      function hideLoadingOverlay() {
-        document.getElementById('loading-overlay').style.display = 'none';
-      }
-
-      // Добавляем слушатель события
       window.addEventListener("arjs-nft-loaded", (event) => {
-        hideLoadingOverlay();
-        console.log('NFT маркер загружен');
+        // Hide loading overlay
       });
     </script>
 
@@ -94,7 +87,7 @@
           videohandler
           id="nft"
           type="nft"
-          url="https://cdn.jsdelivr.net/gh/Adel8901/adel8901/Screenshot_2_image/"
+          url="https://cdn.jsdelivr.net/gh/Adel8901/adel8901/Screenshot_2_image/Screenshot_2"
           smooth="true"
           smoothCount="10"
           smoothTolerance=".01"
@@ -131,55 +124,5 @@
       });
     </script>-->
     
-    <script>
-      
-      // Функция проверки видимости маркера
-      function checkMarkerVisibility() {
-        const marker = document.querySelector("a-nft");
-        if (marker && marker.getAttribute('visible') === 'true') {
-          console.log('Маркер видим');
-        } else {
-          console.log('Маркер невидим');
-        }
-      }
-
-      // Функция проверки состояния трекинга AR.js
-      function checkARTrackingStatus() {
-        const arController = document.querySelector("a-scene").systems.arjs._arSession.arContext.arController;
-        if (arController.isTracking()) {
-          console.log('AR трекинг активен');
-        } else {
-          console.log('AR трекинг неактивен');
-        }
-      }
-
-      // Основной код
-      document.addEventListener('DOMContentLoaded', function() {
-        const nftMarker = document.getElementById('nft-marker');
-
-        nftMarker.addEventListener('markerfound', function(event) {
-          console.log('Маркер найден!');
-          checkMarkerVisibility();
-        });
-
-        nftMarker.addEventListener('markerlost', function(event) {
-          console.log('Маркер потерян');
-          checkARTrackingStatus();
-        });
-      });
-
-      // Функция для проверки видимости маркера в каждом кадре
-      function updateMarkerVisibility() {
-        checkMarkerVisibility();
-        requestAnimationFrame(updateMarkerVisibility);
-      }
-
-      // Запускаем анимацию обновления видимости маркера
-      updateMarkerVisibility();
-
-      // Проверяем состояние AR трекинга каждые 100 мс
-      setInterval(checkARTrackingStatus, 100);
-    </script>
-
   </body>
 </html>
