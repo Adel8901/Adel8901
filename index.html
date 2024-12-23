@@ -29,11 +29,47 @@
 
   <body>
     
+    <script>
+        // Скрываем загрузочный оверлей
+        function hideLoadingOverlay() {
+            document.getElementById('loading-overlay').style.display = 'none';
+        }
+        // Добавляем слушатель события
+        window.addEventListener("arjs-nft-loaded", (event) => {
+            hideLoadingOverlay();
+        });
+    </script>
+
+    <script>
+      document.addEventListener('deviceready', function() {
+        var videoElement = document.getElementById('sample-video');
+        var localFilePath = cordova.file.applicationDirectory + 'https://cdn.jsdelivr.net/gh/Adel8901/adel8901/image-trackin/video.mp4'; // Укажите путь к вашему видео
+
+        // Используем плагин для загрузки видео
+        fetch(localFilePath)
+            .then(response => response.blob())
+            .then(blob => {
+                var url = URL.createObjectURL(blob);
+                videoElement.src = url;
+                videoElement.play();
+            })
+            .catch(error => {
+                console.error('Ошибка загрузки видео:', error);
+            });
+      });
+    </script>
+
+    <script>
+      window.addEventListener("arjs-nft-loaded", (event) => {
+        // Hide loading overlay
+      });
+    </script>
+
     <a-scene mindar-image="imageTargetSrc: https://cdn.jsdelivr.net/gh/Adel8901/adel8901/Screenshot-image/image.mind;" 
     color-space="sRGB" renderer="colorManagement: true, physicallyCorrectLights" 
     vr-mode-ui="enabled: false" device-orientation-permission-ui="enabled: false">
       <a-assets>
-          <video id="sample-video" src="https://cdn.jsdelivr.net/gh/Adel8901/adel8901/image-trackin/video.mp4"  crossorigin="anonymous"></video>
+          <video id="sample-video" src="https://cdn.jsdelivr.net/gh/Adel8901/adel8901/image-trackin/video.mp4" autoplay loop="true" crossorigin="anonymous"></video>
       </a-assets>
 
       <a-camera  look-controls="enabled: false"></a-camera>
