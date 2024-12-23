@@ -9,41 +9,31 @@
   </head>
 
   <body>
-    <a-scene mindar-image="imageTargetSrc: https://cdn.jsdelivr.net/gh/Adel8901/adel8901/Screenshot-image/image.mind; 
-    imageTargetSrc: https://cdn.jsdelivr.net/gh/Adel8901/adel8901/Screenshot-image/image2.mind;
-    uiLoading:no; uiScanning:no; filterMinCF:0.01; filterBeta: 14;" 
-    color-space="sRGB" renderer="colorManagement: true, physicallyCorrectLights" 
-    vr-mode-ui="enabled: false" device-orientation-permission-ui="enabled: false">
+    <a-scene mindar-image="imageTargetSrc: https://cdn.jsdelivr.net/gh/Adel8901/adel8901/Screenshot-image/image.mind; uiLoading:no; uiScanning:no; filterMinCF:0.01; filterBeta: 14;" 
+              color-space="sRGB" renderer="colorManagement: true; physicallyCorrectLights: true" 
+              vr-mode-ui="enabled: false" device-orientation-permission-ui="enabled: false">
+      
       <a-assets>
-        <video id="sample-video" src="https://cdn.jsdelivr.net/gh/Adel8901/adel8901/image-trackin/video.mp4" autoplay loop="true" preload="auto" crossorigin="anonymous" poster="https://cdn.jsdelivr.net/gh/Adel8901/adel8901/Screenshot-image/image.jpg" ></video>
+        <video id="sample-video" src="https://cdn.jsdelivr.net/gh/Adel8901/adel8901/image-trackin/video.mp4" autoplay loop="true" preload="auto" crossorigin="anonymous" poster="https://cdn.jsdelivr.net/gh/Adel8901/adel8901/Screenshot-image/image.jpg"></video>
       </a-assets>
       
-      <style>
-        #sample-video {
-          width: 100%;
-          height: auto;
-          max-width: 100%;
-          object-fit: contain;
-        }
-      </style>
-      
-      <script>
-        // Функция для предварительной загрузки видео
-        function preloadVideo() {
-          var video = document.getElementById('sample-video');
-          video.load();
-        }
-        
-        // Событие загрузки страницы
-        window.addEventListener('load', preloadVideo);
-      </script>
+      <a-camera look-controls="enabled: false" wasd-controls></a-camera>
 
-      <a-camera look-controls="enabled: false" wasd-controls" ></a-camera>
-
-      <a-entity mindar-image-target="targetIndex: 0" >
-        <a-video id="videoElement" material="src: #sample-video; mipmaps: true" autoplay="true" loop="true" position="0 0 0" scale="1 1 1"></a-video>
+      <a-entity mindar-image-target="targetIndex: 0">
+        <a-video id="videoElement" material="src: #sample-video" autoplay="true" loop="true" position="0 0 0" scale="1 1 1"></a-video>
       </a-entity>
+
     </a-scene>
+
+    <script>
+      // Функция для предварительной загрузки видео
+      function preloadVideo() {
+        var video = document.getElementById('sample-video');
+        video.load();
+      }
+      
+      // Событие загрузки страницы
+      window.addEventListener('load', preloadVideo);
+    </script>
   </body>
 </html>
-
