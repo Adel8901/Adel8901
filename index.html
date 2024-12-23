@@ -7,35 +7,67 @@
     <script src="https://aframe.io/releases/1.5.0/aframe.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/mind-ar@1.2.5/dist/mindar-image-aframe.prod.js"></script>
     <style>
-      /* Стили для загрузчика */
-      body {
+      .loading-overlay {
           display: flex;
           justify-content: center;
           align-items: center;
-          height: 100vh;
-          margin: 0;
-          background-color: #f0f0f0;
-      }
-
-      #loader {
-          border: 16px solid #f3f3f3; /* Серый фон */
-          border-top: 16px solid #3498db; /* Синий цвет */
-          border-radius: 50%;
-          width: 60px; /* Ширина загрузчика */
-          height: 60px; /* Высота загрузчика */
-          animation: spin 2s linear infinite; /* Анимация вращения */
-      }
-
-      @keyframes spin {
-          0% { transform: rotate(0deg); }
-          100% { transform: rotate(360deg); }
+          position: fixed;
+          top: 50%;
+          left: 50%;
+          width: 100%;
+          height: 100%;
+          background-color: rgba(255, 255, 255, 0.158);
+          z-index: 9999; /* Поверх всех остальных элементов */
+        }
+      .arjs-loader div {
+          text-align: center;
+          font-size: 1.25em;
+          color: white;
       }
   </style>
-</head>
-<body>
-  <div id="loader"></div> <!-- Загрузчик -->
-    
+  </head>
 
+  <body>
+    
+    <div class="arjs-loader">
+      <div>Loading, please wait...</div>
+    </div>
+    
+    <script>
+        // Скрываем загрузочный оверлей
+        function hideLoadingOverlay() {
+            document.getElementById('loading-overlay').style.display = 'none';
+        }
+        // Добавляем слушатель события
+        window.addEventListener("arjs-nft-loaded", (event) => {
+            hideLoadingOverlay();
+        });
+    </script>
+
+    <script>
+      document.addEventListener('deviceready', function() {
+        var videoElement = document.getElementById('sample-video');
+        var localFilePath = cordova.file.applicationDirectory + 'https://cdn.jsdelivr.net/gh/Adel8901/adel8901/image-trackin/video.mp4'; // Укажите путь к вашему видео
+
+        // Используем плагин для загрузки видео
+        fetch(localFilePath)
+            .then(response => response.blob())
+            .then(blob => {
+                var url = URL.createObjectURL(blob);
+                videoElement.src = url;
+                videoElement.play();
+            })
+            .catch(error => {
+                console.error('Ошибка загрузки видео:', error);
+            });
+      });
+    </script>
+
+    <script>
+      window.addEventListener("arjs-nft-loaded", (event) => {
+        // Hide loading overlay
+      });
+    </script>
 
     <a-scene mindar-image="imageTargetSrc: https://cdn.jsdelivr.net/gh/Adel8901/adel8901/Screenshot-image/image.mind;" 
     color-space="sRGB" renderer="colorManagement: true, physicallyCorrectLights" 
