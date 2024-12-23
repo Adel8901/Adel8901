@@ -6,16 +6,18 @@
   </head>
   <body>
     <a-scene mindar-image="imageTargetSrc: https://cdn.jsdelivr.net/gh/Adel8901/adel8901/Screenshot-image/image.mind;" 
-    color-space="sRGB" renderer="colorManagement: true, physicallyCorrectLights" 
-    vr-mode-ui="enabled: false" device-orientation-permission-ui="enabled: false">
+              color-space="sRGB" 
+              renderer="colorManagement: true, physicallyCorrectLights" 
+              vr-mode-ui="enabled: false" 
+              device-orientation-permission-ui="enabled: false">
       <a-assets>
-          <video id="avatarVideo" src="https://cdn.jsdelivr.net/gh/Adel8901/adel8901/image-trackin/video.mp4" autoplay loop="true" crossorigin="anonymous"></video>
+          <video id="avatarVideo" src="https://cdn.jsdelivr.net/gh/Adel8901/adel8901/image-trackin/video.mp4" autoplay loop crossorigin="anonymous"></video>
       </a-assets>
 
       <a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
 
-      <a-entity mindar-image-target="targetIndex: 0" >
-        <a-video id="videoElement" src="#avatarVideo" position="0 0 0" rotation="0 0 0" scale="1 1 1"></a-video>
+      <a-entity mindar-image-target="targetIndex: 0">
+        <a-video src="#avatarVideo" position="0 0 0" rotation="0 0 0" scale="1 1 1" autoplay="true" loop="true"></a-video>
       </a-entity>
     </a-scene>
   </body>
