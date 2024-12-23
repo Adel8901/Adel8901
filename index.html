@@ -9,7 +9,7 @@
   </head>
 
   <body>
-    <a-scene mindar-image="imageTargetSrc: https://cdn.jsdelivr.net/gh/Adel8901/adel8901/Screenshot-image/image.mind; uiError:no; uiLoading:no; uiScanning:no; filterMinCF:0.1; filterBeta: 12; warmupTolerance: 1; missTolerance: 1" 
+    <a-scene mindar-image="imageTargetSrc: https://cdn.jsdelivr.net/gh/Adel8901/adel8901/Screenshot-image/image.mind; uiLoading:no; uiScanning:no; filterMinCF:0.01; filterBeta: 10; warmupTolerance: 2; missTolerance: 1" 
     color-space="sRGB" renderer="colorManagement: true, physicallyCorrectLights" 
     vr-mode-ui="enabled: false" device-orientation-permission-ui="enabled: false">
       <a-assets>
@@ -36,11 +36,12 @@
         window.addEventListener('load', preloadVideo);
       </script>
 
-      <a-camera look-controls="enabled: false"></a-camera>
+      <a-camera look-controls="active: true" look-controls wasd-controls position="0 1.6 0" ></a-camera>
 
       <a-entity mindar-image-target="targetIndex: 0" >
-        <a-video id="videoElement" material="src: #sample-video; mipmaps: true" autoplay="true" loop="true" ></a-video>
+        <a-video id="videoElement" material="src: #sample-video; mipmaps: true" autoplay="true" loop="true" position="0 0 0" scale="1 1 1"></a-video>
       </a-entity>
     </a-scene>
   </body>
 </html>
+
