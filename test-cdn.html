@@ -10,22 +10,25 @@
   </head>
 
   <body>
-    <a-scene mindar-image="imageTargetSrc: https://cdn.jsdelivr.net/gh/Adel8901/adel8901/Screenshot-image/image.mind; maxTrack: 2" uiLoading:no; uiScanning:no; filterMinCF:0.01; filterBeta: 14; 
-              color-space="sRGB" renderer="colorManagement: true; physicallyCorrectLights: true" 
-              vr-mode-ui="enabled: false" device-orientation-permission-ui="enabled: false">
+    <a-scene mindar-image="imageTargetSrc: https://cdn.jsdelivr.net/gh/Adel8901/adel8901/Screenshot-image/image.mind; maxTrack: 2" 
+    uiLoading:no; uiScanning:no; filterMinCF:0.01; filterBeta: 14; 
+    color-space="sRGB" renderer="colorManagement: true; physicallyCorrectLights: true" 
+     vr-mode-ui="enabled: false" device-orientation-permission-ui="enabled: false">
       
       <a-assets>
-        <video id="sample-video" src="https://cdn.jsdelivr.net/gh/Adel8901/adel8901/image-trackin/video.mp4" autoplay loop="true" preload="auto" crossorigin="anonymous"></video>
-        <video id="sample-video2" src="https://cdn.jsdelivr.net/gh/Adel8901/adel8901/image-trackin/video2.mp4" autoplay loop="true" preload="auto" crossorigin="anonymous"></video>
+        <video id="sample-video" src="https://cdn.jsdelivr.net/gh/Adel8901/adel8901/image-trackin/video.mp4"
+        autoplay loop="true" preload="auto" crossorigin="anonymous"></video>
+        <video id="sample-video2" src="https://cdn.jsdelivr.net/gh/Adel8901/adel8901/image-trackin/video2.mp4"
+        autoplay loop="true" preload="auto" crossorigin="anonymous"></video>
       </a-assets>
       
       <a-camera look-controls="active: true" wasd-controls></a-camera>
 
       <a-entity mindar-image-target="targetIndex: 0">
-        <a-video id="videoElement" material="src: #sample-video" autoplay="true" loop="true" position="0 0 0" scale="1 1 1"></a-video>
+        <a-video id="videoElement" src="#sample-video" autoplay="true" loop="true" position="0 0 0" scale="1 1 1"></a-video>
       </a-entity>
       <a-entity mindar-image-target="targetIndex: 1">
-        <a-video id="videoElement2" material="src: #sample-video2" autoplay="true" loop="true" position="0 0 0" scale="1 1 1"></a-video>
+        <a-video id="videoElement2" src="#sample-video2" autoplay="true" loop="true" position="0 0 0" scale="1 1 1"></a-video>
       </a-entity>
 
     </a-scene>
