@@ -7,9 +7,46 @@
     <script src="https://aframe.io/releases/1.6.0/aframe.min.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v7.0.0/dist/aframe-extras.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/mind-ar@1.2.5/dist/mindar-image-aframe.prod.js"></script>
-  </head>
+    <style>
+      .arjs-loader {
+        height: 100%;
+        width: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        background-color: rgba(0, 0, 0, 0.8);
+        z-index: 9999;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
 
-  <body>
+      .arjs-loader div {
+        text-align: center;
+        font-size: 1.25em;
+        color: white;
+      }
+    </style>
+  </head>
+  <body style="margin : 0px; overflow: hidden;">
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        function removeLoader() {
+          var loader = document.querySelector('.arjs-loader');
+          if (loader) {
+            loader.style.display = 'none';
+          }
+        }
+      
+        // Вызываем функцию после загрузки сцены
+        window.addEventListener('load', removeLoader);
+      });
+    </script>
+    <!-- minimal loader shown until image descriptors are loaded. Loading may take a while according to the device computational power -->
+    <div class="arjs-loader">
+      <div>Loading, please wait...</div>
+    </div>
+    
     <a-scene mindar-image="imageTargetSrc: https://cdn.jsdelivr.net/gh/Adel8901/adel8901/Screenshot-image/targets.mind;
      uiLoading:no; uiScanning:no; filterMinCF:0.01; filterBeta: 14;" 
      color-space="sRGB" renderer="colorManagement: true; physicallyCorrectLights: true" 
@@ -22,26 +59,16 @@
         autoplay loop="true" preload="auto" crossorigin="anonymous"></video>
       </a-assets>
       
-      <a-camera look-controls="enabled: false" wasd-controls></a-camera>
+      <a-camera look-controls="enabled: true" wasd-controls></a-camera>
 
       <a-entity mindar-image-target="targetIndex: 0">
-        <a-video id="videoElement" material="src: #sample-video" autoplay="true" loop="true" position="0 0 0" scale="1 1 1"></a-video>
+        <a-video id="videoElement" material="src: #sample-video" autoplay="true" loop="true" position="0 0 0" scale="1.5 1.2 1"></a-video>
       </a-entity>
       <a-entity mindar-image-target="targetIndex: 1">
-        <a-video id="videoElement" material="src: #sample-video2" autoplay="true" loop="true" position="0 0 0" scale="1 1 1"></a-video>
+        <a-video id="videoElement" material="src: #sample-video2" autoplay="true" loop="true" position="0 0 0" scale="1.5 1 1"></a-video>
       </a-entity>
 
     </a-scene>
 
-    <script>
-      // Функция для предварительной загрузки видео
-      function preloadVideo() {
-        var video = document.getElementById('sample-video');
-        video.load();
-      }
-      
-      // Событие загрузки страницы
-      window.addEventListener('load', preloadVideo);
-    </script>
   </body>
 </html>
